@@ -1,358 +1,130 @@
-# projects
+# 惟实新聚（上海）高科技有限公司 - 企业官网
 
-这是一个基于 [Next.js 16](https://nextjs.org) + [shadcn/ui](https://ui.shadcn.com) 的全栈应用项目，由扣子编程 CLI 创建。
+## 部署到 Netlify
 
-## 快速开始
+本项目已配置好 Netlify 部署，可以通过以下方式免费部署测试。
 
-### 启动开发服务器
+### 方式一：通过 Git 部署（推荐）
 
-```bash
-coze dev
-```
+1. **推送到 Git 仓库**
+   - 将项目推送到 GitHub、GitLab 或 Bitbucket
+   - 确保包含以下文件：
+     - `netlify.toml`
+     - `package.json`
+     - `pnpm-lock.yaml`
+     - 所有源代码文件
 
-启动后，在浏览器中打开 [http://localhost:5000](http://localhost:5000) 查看应用。
+2. **连接 Netlify**
+   - 访问 [Netlify](https://app.netlify.com/)
+   - 点击 "Add new site" → "Import an existing project"
+   - 选择你的 Git 仓库
+   - 选择分支（通常是 `main` 或 `master`）
 
-开发服务器支持热更新，修改代码后页面会自动刷新。
+3. **配置构建设置**
+   Netlify 会自动读取 `netlify.toml` 配置，无需手动设置：
+   - **Build command**: `pnpm install && pnpm build`
+   - **Publish directory**: `.next`
+   - **Node version**: `20`
 
-### 构建生产版本
+4. **部署**
+   - 点击 "Deploy site"
+   - 等待构建完成（约 2-3 分钟）
+   - 部署成功后，Netlify 会提供一个随机域名（如：https://random-name.netlify.app）
 
-```bash
-coze build
-```
+5. **自定义域名（可选）**
+   - 在 Site settings → Domain management 中设置自定义域名
+   - 可以绑定自己的域名或使用 Netlify 提供的免费域名
 
-### 启动生产服务器
+### 方式二：通过 Netlify CLI 部署
 
-```bash
-coze start
-```
+1. **安装 Netlify CLI**
+   ```bash
+   npm install -g netlify-cli
+   ```
 
-## 项目结构
+2. **登录 Netlify**
+   ```bash
+   netlify login
+   ```
 
-```
-src/
-├── app/                      # Next.js App Router 目录
-│   ├── layout.tsx           # 根布局组件
-│   ├── page.tsx             # 首页
-│   ├── globals.css          # 全局样式（包含 shadcn 主题变量）
-│   └── [route]/             # 其他路由页面
-├── components/              # React 组件目录
-│   └── ui/                  # shadcn/ui 基础组件（优先使用）
-│       ├── button.tsx
-│       ├── card.tsx
-│       └── ...
-├── lib/                     # 工具函数库
-│   └── utils.ts            # cn() 等工具函数
-└── hooks/                   # 自定义 React Hooks（可选）
-```
+3. **初始化项目**
+   ```bash
+   netlify init
+   ```
 
-## 核心开发规范
+4. **部署**
+   ```bash
+   netlify deploy --prod
+   ```
 
-### 1. 组件开发
+### 方式三：通过拖拽部署
 
-**优先使用 shadcn/ui 基础组件**
+1. **构建项目**
+   ```bash
+   pnpm build
+   ```
 
-本项目已预装完整的 shadcn/ui 组件库，位于 `src/components/ui/` 目录。开发时应优先使用这些组件作为基础：
+2. **打包项目**
+   ```bash
+   # 创建一个包含所有必要文件的目录
+   mkdir deploy
+   cp -r public next.config.js .next package.json pnpm-lock.yaml deploy/
+   ```
 
-```tsx
-// ✅ 推荐：使用 shadcn 基础组件
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
+3. **拖拽部署**
+   - 访问 [Netlify Drop](https://app.netlify.com/drop)
+   - 将 `deploy` 文件夹拖拽到页面中
+   - 等待上传和构建完成
 
-export default function MyComponent() {
-  return (
-    <Card>
-      <CardHeader>标题</CardHeader>
-      <CardContent>
-        <Input placeholder="输入内容" />
-        <Button>提交</Button>
-      </CardContent>
-    </Card>
-  );
-}
-```
+### 注意事项
 
-**可用的 shadcn 组件清单**
+1. **图片文件**
+   - 确保所有图片文件（`public/` 目录下的图片）都已提交到 Git 仓库
+   - 大图片文件（超过 10MB）可能需要优化或使用外部存储
 
-- 表单：`button`, `input`, `textarea`, `select`, `checkbox`, `radio-group`, `switch`, `slider`
-- 布局：`card`, `separator`, `tabs`, `accordion`, `collapsible`, `scroll-area`
-- 反馈：`alert`, `alert-dialog`, `dialog`, `toast`, `sonner`, `progress`
-- 导航：`dropdown-menu`, `menubar`, `navigation-menu`, `context-menu`
-- 数据展示：`table`, `avatar`, `badge`, `hover-card`, `tooltip`, `popover`
-- 其他：`calendar`, `command`, `carousel`, `resizable`, `sidebar`
+2. **构建时间**
+   - Netlify 免费版每月有 300 分钟的构建时间限制
+   - 本项目构建时间约 2-3 分钟
 
-详见 `src/components/ui/` 目录下的具体组件实现。
+3. **流量限制**
+   - Netlify 免费版每月 100GB 带宽
+   - 超过后会限制访问速度
 
-### 2. 路由开发
+4. **环境变量**
+   - 如需使用环境变量，在 Netlify 的 Site settings → Environment variables 中配置
 
-Next.js 使用文件系统路由，在 `src/app/` 目录下创建文件夹即可添加路由：
+### 项目特点
 
-```bash
-# 创建新路由 /about
-src/app/about/page.tsx
+- ✅ 静态生成，加载速度快
+- ✅ 响应式设计，支持移动端
+- ✅ 使用 Next.js 16 + React 19
+- ✅ Tailwind CSS 4 样式系统
+- ✅ 已配置 Netlify 自动部署
 
-# 创建动态路由 /posts/[id]
-src/app/posts/[id]/page.tsx
-
-# 创建路由组（不影响 URL）
-src/app/(marketing)/about/page.tsx
-
-# 创建 API 路由
-src/app/api/users/route.ts
-```
-
-**页面组件示例**
-
-```tsx
-// src/app/about/page.tsx
-import { Button } from '@/components/ui/button';
-
-export const metadata = {
-  title: '关于我们',
-  description: '关于页面描述',
-};
-
-export default function AboutPage() {
-  return (
-    <div>
-      <h1>关于我们</h1>
-      <Button>了解更多</Button>
-    </div>
-  );
-}
-```
-
-**动态路由示例**
-
-```tsx
-// src/app/posts/[id]/page.tsx
-export default async function PostPage({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
-  const { id } = await params;
-
-  return <div>文章 ID: {id}</div>;
-}
-```
-
-**API 路由示例**
-
-```tsx
-// src/app/api/users/route.ts
-import { NextResponse } from 'next/server';
-
-export async function GET() {
-  return NextResponse.json({ users: [] });
-}
-
-export async function POST(request: Request) {
-  const body = await request.json();
-  return NextResponse.json({ success: true });
-}
-```
-
-### 3. 依赖管理
-
-**必须使用 pnpm 管理依赖**
+### 本地运行
 
 ```bash
-# ✅ 安装依赖
+# 安装依赖
 pnpm install
 
-# ✅ 添加新依赖
-pnpm add package-name
+# 启动开发服务器
+pnpm dev
 
-# ✅ 添加开发依赖
-pnpm add -D package-name
+# 构建生产版本
+pnpm build
 
-# ❌ 禁止使用 npm 或 yarn
-# npm install  # 错误！
-# yarn add     # 错误！
+# 启动生产服务器
+pnpm start
 ```
 
-项目已配置 `preinstall` 脚本，使用其他包管理器会报错。
+### 技术栈
 
-### 4. 样式开发
+- **框架**: Next.js 16 (App Router)
+- **UI**: React 19
+- **样式**: Tailwind CSS 4
+- **组件**: shadcn/ui
+- **语言**: TypeScript 5
 
-**使用 Tailwind CSS v4**
+---
 
-本项目使用 Tailwind CSS v4 进行样式开发，并已配置 shadcn 主题变量。
-
-```tsx
-// 使用 Tailwind 类名
-<div className="flex items-center gap-4 p-4 rounded-lg bg-background">
-  <Button className="bg-primary text-primary-foreground">
-    主要按钮
-  </Button>
-</div>
-
-// 使用 cn() 工具函数合并类名
-import { cn } from '@/lib/utils';
-
-<div className={cn(
-  "base-class",
-  condition && "conditional-class",
-  className
-)}>
-  内容
-</div>
-```
-
-**主题变量**
-
-主题变量定义在 `src/app/globals.css` 中，支持亮色/暗色模式：
-
-- `--background`, `--foreground`
-- `--primary`, `--primary-foreground`
-- `--secondary`, `--secondary-foreground`
-- `--muted`, `--muted-foreground`
-- `--accent`, `--accent-foreground`
-- `--destructive`, `--destructive-foreground`
-- `--border`, `--input`, `--ring`
-
-### 5. 表单开发
-
-推荐使用 `react-hook-form` + `zod` 进行表单开发：
-
-```tsx
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-
-const formSchema = z.object({
-  username: z.string().min(2, '用户名至少 2 个字符'),
-  email: z.string().email('请输入有效的邮箱'),
-});
-
-export default function MyForm() {
-  const form = useForm({
-    resolver: zodResolver(formSchema),
-    defaultValues: { username: '', email: '' },
-  });
-
-  const onSubmit = (data: z.infer<typeof formSchema>) => {
-    console.log(data);
-  };
-
-  return (
-    <form onSubmit={form.handleSubmit(onSubmit)}>
-      <Input {...form.register('username')} />
-      <Input {...form.register('email')} />
-      <Button type="submit">提交</Button>
-    </form>
-  );
-}
-```
-
-### 6. 数据获取
-
-**服务端组件（推荐）**
-
-```tsx
-// src/app/posts/page.tsx
-async function getPosts() {
-  const res = await fetch('https://api.example.com/posts', {
-    cache: 'no-store', // 或 'force-cache'
-  });
-  return res.json();
-}
-
-export default async function PostsPage() {
-  const posts = await getPosts();
-
-  return (
-    <div>
-      {posts.map(post => (
-        <div key={post.id}>{post.title}</div>
-      ))}
-    </div>
-  );
-}
-```
-
-**客户端组件**
-
-```tsx
-'use client';
-
-import { useEffect, useState } from 'react';
-
-export default function ClientComponent() {
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    fetch('/api/data')
-      .then(res => res.json())
-      .then(setData);
-  }, []);
-
-  return <div>{JSON.stringify(data)}</div>;
-}
-```
-
-## 常见开发场景
-
-### 添加新页面
-
-1. 在 `src/app/` 下创建文件夹和 `page.tsx`
-2. 使用 shadcn 组件构建 UI
-3. 根据需要添加 `layout.tsx` 和 `loading.tsx`
-
-### 创建业务组件
-
-1. 在 `src/components/` 下创建组件文件（非 UI 组件）
-2. 优先组合使用 `src/components/ui/` 中的基础组件
-3. 使用 TypeScript 定义 Props 类型
-
-### 添加全局状态
-
-推荐使用 React Context 或 Zustand：
-
-```tsx
-// src/lib/store.ts
-import { create } from 'zustand';
-
-interface Store {
-  count: number;
-  increment: () => void;
-}
-
-export const useStore = create<Store>((set) => ({
-  count: 0,
-  increment: () => set((state) => ({ count: state.count + 1 })),
-}));
-```
-
-### 集成数据库
-
-推荐使用 Prisma 或 Drizzle ORM，在 `src/lib/db.ts` 中配置。
-
-## 技术栈
-
-- **框架**: Next.js 16.1.1 (App Router)
-- **UI 组件**: shadcn/ui (基于 Radix UI)
-- **样式**: Tailwind CSS v4
-- **表单**: React Hook Form + Zod
-- **图标**: Lucide React
-- **字体**: Geist Sans & Geist Mono
-- **包管理器**: pnpm 9+
-- **TypeScript**: 5.x
-
-## 参考文档
-
-- [Next.js 官方文档](https://nextjs.org/docs)
-- [shadcn/ui 组件文档](https://ui.shadcn.com)
-- [Tailwind CSS 文档](https://tailwindcss.com/docs)
-- [React Hook Form](https://react-hook-form.com)
-
-## 重要提示
-
-1. **必须使用 pnpm** 作为包管理器
-2. **优先使用 shadcn/ui 组件** 而不是从零开发基础组件
-3. **遵循 Next.js App Router 规范**，正确区分服务端/客户端组件
-4. **使用 TypeScript** 进行类型安全开发
-5. **使用 `@/` 路径别名** 导入模块（已配置）
+如有问题，请参考 [Netlify 文档](https://docs.netlify.com/)
