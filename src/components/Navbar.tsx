@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
@@ -37,15 +38,22 @@ export default function Navbar() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center group-hover:shadow-lg transition-shadow">
-              <span className="text-white font-bold text-xl">惟</span>
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="relative w-12 h-12 flex items-center justify-center group-hover:scale-105 transition-transform">
+              <Image
+                src="/logo.png"
+                alt="惟实新聚 Logo"
+                width={48}
+                height={48}
+                className="object-contain"
+                priority
+              />
             </div>
             <div className="flex flex-col">
-              <span className="text-lg font-bold text-gray-900 leading-tight">
+              <span className="text-lg font-bold leading-tight" style={{ color: isScrolled ? '#111827' : '#ffffff' }}>
                 惟实新聚
               </span>
-              <span className="text-xs text-gray-600">
+              <span className="text-xs" style={{ color: isScrolled ? '#6b7280' : '#e5e7eb' }}>
                 Weishi Xinju
               </span>
             </div>
