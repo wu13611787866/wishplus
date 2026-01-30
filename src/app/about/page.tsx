@@ -12,6 +12,9 @@ export default function AboutPage() {
       <div className="relative h-96 bg-gradient-to-r from-blue-900 via-blue-700 to-blue-900 flex items-center justify-center">
         <div className="absolute inset-0 bg-black/30"></div>
         <div className="relative z-10 text-center text-white px-4">
+          <p className="text-lg md:text-xl tracking-[0.2em] mb-4 text-blue-200">
+            惟实求真，聚新致远
+          </p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
             公司介绍
           </h1>
@@ -22,63 +25,83 @@ export default function AboutPage() {
       </div>
 
       {/* Company Overview */}
-      <div className="py-16 bg-white">
+      <div className="py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">
                 惟实新聚（上海）高科技有限公司
               </h2>
-              <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
-              <p className="text-lg text-gray-600 leading-relaxed">
-                惟实新聚（上海）高科技有限公司是一家专注于仪表类产品研发、生产与销售的高新技术企业。
-                公司秉承"惟实创新，汇聚智慧"的企业理念，致力于为客户提供高品质、高精度的测量仪表解决方案。
+              <div className="w-20 h-1 bg-blue-600 mx-auto mb-8"></div>
+              <div className="prose prose-lg mx-auto text-gray-600 leading-relaxed">
+                <p className="text-lg mb-6">
+                  惟实新聚（上海）高科技有限公司，是一家专注于<strong>工业仪表、工业控制系统一体化解决方案</strong>的高新技术企业。
+                  公司秉承<strong>"惟实求真，聚新致远"</strong>的核心精神，致力于为石油化工、电力能源、环保水处理及高端制造等领域，
+                  提供从精准选型、可靠集成到专业服务的全链条价值。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Core Advantages */}
+      <div className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                核心优势
+              </h2>
+              <p className="text-xl text-blue-600 font-medium">
+                源于严苛体系的专业信任
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-              <div className="bg-gray-50 p-8 rounded-xl">
-                <h3 className="text-xl font-bold mb-4 text-gray-900">企业愿景</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  成为国内领先的仪表产品解决方案提供商，以技术创新引领行业发展，
-                  为客户创造更大价值。
+            <div className="bg-white rounded-2xl p-8 md:p-12 shadow-sm">
+              <div className="prose prose-lg max-w-none text-gray-600 leading-relaxed mb-8">
+                <p className="text-lg mb-6">
+                  公司的核心团队脱胎于对安全与可靠性有极致要求的<strong>国家级重大战略工程体系</strong>，
+                  深谙复杂工业环境下的系统逻辑与质量精髓。我们将这份沉淀于基因中的<strong>"零缺陷"</strong>文化，
+                  转化为面向现代工业的服务准则。
+                </p>
+                <p className="text-lg mb-6">
+                  我们不仅是产品的提供者，更是系统化价值的整合者。公司构建了以<strong>全生命周期项目管理</strong>与<strong>严苛供应链管控</strong>为核心的独特运营体系。
+                  通过成熟的项目管理方法论，确保从需求对接到交付验收的每一个环节都在进度、成本与质量上受控；
+                  通过建立<strong>三级供应商资源池</strong>与<strong>四维评估标准</strong>，确保所集成的每一个组件都源自顶尖品牌与可靠渠道，
+                  实现从源头到现场的品质保障。
                 </p>
               </div>
-              <div className="bg-gray-50 p-8 rounded-xl">
-                <h3 className="text-xl font-bold mb-4 text-gray-900">企业使命</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  通过持续的技术创新和优质服务，为客户提供精准可靠的测量仪表产品，
-                  助力各行业实现智能化升级。
-                </p>
-              </div>
-            </div>
 
-            <div className="bg-blue-50 p-8 rounded-xl">
-              <h3 className="text-xl font-bold mb-4 text-gray-900">核心价值观</h3>
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <span className="text-white font-bold text-xl">诚</span>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                <div className="bg-blue-50 p-6 rounded-xl text-center">
+                  <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
                   </div>
-                  <p className="font-semibold text-gray-900">诚信为本</p>
+                  <h3 className="font-bold text-gray-900 mb-2">零缺陷文化</h3>
+                  <p className="text-sm text-gray-600">源于国家级重大战略工程体系</p>
                 </div>
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <span className="text-white font-bold text-xl">创</span>
+
+                <div className="bg-blue-50 p-6 rounded-xl text-center">
+                  <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                    </svg>
                   </div>
-                  <p className="font-semibold text-gray-900">创新驱动</p>
+                  <h3 className="font-bold text-gray-900 mb-2">全生命周期管理</h3>
+                  <p className="text-sm text-gray-600">从需求到交付全程受控</p>
                 </div>
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <span className="text-white font-bold text-xl">质</span>
+
+                <div className="bg-blue-50 p-6 rounded-xl text-center">
+                  <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
                   </div>
-                  <p className="font-semibold text-gray-900">品质至上</p>
-                </div>
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <span className="text-white font-bold text-xl">合</span>
-                  </div>
-                  <p className="font-semibold text-gray-900">合作共赢</p>
+                  <h3 className="font-bold text-gray-900 mb-2">严苛供应链管控</h3>
+                  <p className="text-sm text-gray-600">三级资源池 · 四维评估标准</p>
                 </div>
               </div>
             </div>
@@ -86,118 +109,142 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* Development History */}
-      <div className="py-16 bg-gray-50">
+      {/* Solutions */}
+      <div className="py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-              发展历程
-            </h2>
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                解决方案
+              </h2>
+              <p className="text-xl text-blue-600 font-medium">
+                从精密部件到智能系统
+              </p>
+            </div>
 
-            <div className="relative">
-              <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-blue-200"></div>
+            <div className="bg-gradient-to-br from-blue-900 to-blue-700 rounded-2xl p-8 md:p-12 text-white mb-8">
+              <div className="prose prose-lg max-w-none leading-relaxed">
+                <p className="text-lg mb-6">
+                  我们提供涵盖<strong>压力、温度、流量、物位</strong>等全系列智能仪表，以及高性能控制阀与执行机构的专业选型与成套服务。
+                </p>
+                <p className="text-lg">
+                  同时，我们更专注于控制系统深度集成，具备从<strong>PLC/DCS控制柜</strong>的精细化设计组装，
+                  到<strong>SCADA/HMI监控系统</strong>定制开发的全方位能力，旨在为客户构建稳定、高效、可视的工业测控神经中枢。
+                </p>
+              </div>
+            </div>
 
-              <div className="space-y-12">
-                <div className="relative flex items-center">
-                  <div className="w-1/2 pr-8 text-right">
-                    <div className="bg-white p-6 rounded-lg shadow-sm">
-                      <h3 className="text-lg font-bold text-blue-600 mb-2">公司成立</h3>
-                      <p className="text-gray-600">
-                        惟实新聚（上海）高科技有限公司正式成立，开启仪表产品研发之旅
-                      </p>
-                    </div>
-                  </div>
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-600 rounded-full border-4 border-white"></div>
-                  <div className="w-1/2 pl-8"></div>
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+              <div className="bg-gray-50 p-4 rounded-xl text-center hover:bg-blue-50 transition-colors">
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
                 </div>
+                <p className="font-semibold text-gray-900 text-sm">压力仪表</p>
+              </div>
 
-                <div className="relative flex items-center">
-                  <div className="w-1/2 pr-8"></div>
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-600 rounded-full border-4 border-white"></div>
-                  <div className="w-1/2 pl-8">
-                    <div className="bg-white p-6 rounded-lg shadow-sm">
-                      <h3 className="text-lg font-bold text-blue-600 mb-2">技术突破</h3>
-                      <p className="text-gray-600">
-                        成功研发多款高精度仪表产品，获得多项技术专利
-                      </p>
-                    </div>
-                  </div>
+              <div className="bg-gray-50 p-4 rounded-xl text-center hover:bg-blue-50 transition-colors">
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
                 </div>
+                <p className="font-semibold text-gray-900 text-sm">温度仪表</p>
+              </div>
 
-                <div className="relative flex items-center">
-                  <div className="w-1/2 pr-8 text-right">
-                    <div className="bg-white p-6 rounded-lg shadow-sm">
-                      <h3 className="text-lg font-bold text-blue-600 mb-2">市场拓展</h3>
-                      <p className="text-gray-600">
-                        产品覆盖全国多个省市，建立完善的销售与服务网络
-                      </p>
-                    </div>
-                  </div>
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-600 rounded-full border-4 border-white"></div>
-                  <div className="w-1/2 pl-8"></div>
+              <div className="bg-gray-50 p-4 rounded-xl text-center hover:bg-blue-50 transition-colors">
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                  </svg>
                 </div>
+                <p className="font-semibold text-gray-900 text-sm">流量仪表</p>
+              </div>
 
-                <div className="relative flex items-center">
-                  <div className="w-1/2 pr-8"></div>
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-600 rounded-full border-4 border-white"></div>
-                  <div className="w-1/2 pl-8">
-                    <div className="bg-white p-6 rounded-lg shadow-sm">
-                      <h3 className="text-lg font-bold text-blue-600 mb-2">持续创新</h3>
-                      <p className="text-gray-600">
-                        持续投入研发，探索智能化仪表技术，引领行业未来
-                      </p>
-                    </div>
-                  </div>
+              <div className="bg-gray-50 p-4 rounded-xl text-center hover:bg-blue-50 transition-colors">
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                  </svg>
                 </div>
+                <p className="font-semibold text-gray-900 text-sm">物位仪表</p>
+              </div>
+
+              <div className="bg-gray-50 p-4 rounded-xl text-center hover:bg-blue-50 transition-colors">
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <p className="font-semibold text-gray-900 text-sm">控制系统</p>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Team & Culture */}
+      {/* Vision */}
+      <div className="py-20 bg-gradient-to-br from-blue-900 via-blue-700 to-blue-900 text-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-6">
+              愿景：成为您最可信赖的合作伙伴
+            </h2>
+            <div className="w-20 h-1 bg-blue-300 mx-auto mb-8"></div>
+            <div className="prose prose-lg mx-auto text-blue-100 leading-relaxed mb-8">
+              <p className="text-lg mb-6">
+                立足于上海，服务于全国。惟实新聚以<strong>务实</strong>为根基，以<strong>创新聚能</strong>为路径，
+                致力于成为工业自动化升级道路上，客户首选的深度合作伙伴。
+              </p>
+              <p className="text-lg">
+                我们交付的不仅是一套设备，更是一份基于专业体系的<strong>可控性、可靠性与省心的体验</strong>。
+              </p>
+            </div>
+            <div className="mt-12 inline-block bg-white/10 backdrop-blur-sm rounded-2xl px-12 py-8">
+              <p className="text-2xl font-bold mb-2">诚邀携手，共创未来</p>
+              <p className="text-blue-200">Looking Forward to Cooperation</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Industries */}
       <div className="py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-              团队与文化
-            </h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold mb-2 text-gray-900">专业团队</h3>
-                <p className="text-gray-600">
-                  汇聚行业精英，拥有丰富的仪表研发与生产经验
-                </p>
+          <div className="max-w-5xl mx-auto">
+            <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">
+              服务领域
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl text-center hover:shadow-lg transition-shadow">
+                <svg className="w-12 h-12 text-blue-600 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                </svg>
+                <p className="font-semibold text-gray-900">石油化工</p>
               </div>
 
-              <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold mb-2 text-gray-900">创新文化</h3>
-                <p className="text-gray-600">
-                  鼓励技术创新与突破，持续推动产品升级换代
-                </p>
+              <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl text-center hover:shadow-lg transition-shadow">
+                <svg className="w-12 h-12 text-blue-600 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                <p className="font-semibold text-gray-900">电力能源</p>
               </div>
 
-              <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold mb-2 text-gray-900">客户导向</h3>
-                <p className="text-gray-600">
-                  以客户需求为中心，提供定制化解决方案
-                </p>
+              <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl text-center hover:shadow-lg transition-shadow">
+                <svg className="w-12 h-12 text-blue-600 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                </svg>
+                <p className="font-semibold text-gray-900">环保水处理</p>
+              </div>
+
+              <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl text-center hover:shadow-lg transition-shadow">
+                <svg className="w-12 h-12 text-blue-600 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <p className="font-semibold text-gray-900">高端制造</p>
               </div>
             </div>
           </div>
