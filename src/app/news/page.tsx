@@ -23,6 +23,7 @@ export default function NewsPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [fromCache, setFromCache] = useState(false);
+  const [source, setSource] = useState<string>('sdk');
 
   const fetchNews = async () => {
     setLoading(true);
@@ -35,6 +36,7 @@ export default function NewsPage() {
       if (result.success) {
         setNews(result.data);
         setFromCache(result.fromCache);
+        setSource(result.source || 'sdk');
       } else {
         setError(result.message || '获取资讯失败');
       }
@@ -114,9 +116,17 @@ export default function NewsPage() {
 
             {/* Cache indicator */}
             {fromCache && !loading && (
-              <div className="mb-6 flex items-center gap-2 text-sm text-amber-600 bg-amber-50 px-4 py-2 rounded-lg">
+              <div className="mb-4 flex items-center gap-2 text-sm text-amber-600 bg-amber-50 px-4 py-2 rounded-lg">
                 <AlertCircle className="w-4 h-4" />
                 <span>显示缓存数据（缓存5分钟）</span>
+              </div>
+            )}
+
+            {/* Source indicator */}
+            {source === 'fallback' && !loading && (
+              <div className="mb-4 flex items-center gap-2 text-sm text-blue-600 bg-blue-50 px-4 py-2 rounded-lg">
+                <AlertCircle className="w-4 h-4" />
+                <span>显示示例数据（实时搜索暂不可用）</span>
               </div>
             )}
 
