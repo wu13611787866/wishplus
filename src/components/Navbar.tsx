@@ -39,16 +39,18 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center group">
-            <div className="relative flex items-center justify-center group-hover:scale-105 transition-transform" style={{ width: '72px', height: '72px' }}>
-              <div className={`absolute inset-0 rounded-full transition-colors duration-300 ${
-                isScrolled ? 'bg-white shadow-lg' : 'bg-white/95 backdrop-blur-sm shadow-lg'
+            <div className="relative flex items-center justify-center group-hover:scale-105 transition-transform duration-300" style={{ width: '72px', height: '72px' }}>
+              <div className={`absolute inset-0 rounded-2xl transition-all duration-300 ${
+                isScrolled
+                  ? 'bg-gradient-to-br from-blue-50 to-white shadow-xl'
+                  : 'bg-gradient-to-br from-white/20 to-white/40 backdrop-blur-md shadow-xl border border-white/30'
               }`}></div>
               <Image
                 src="/logo.png"
                 alt="惟实新聚 Logo"
                 width={72}
                 height={72}
-                className="object-contain relative z-10"
+                className="object-contain relative z-10 p-3"
                 priority
               />
             </div>

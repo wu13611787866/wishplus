@@ -8,15 +8,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center gap-4 mb-4">
               <div className="relative flex items-center justify-center" style={{ width: '72px', height: '72px' }}>
-                <div className="absolute inset-0 bg-white rounded-full shadow-lg"></div>
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 shadow-xl border border-gray-700"></div>
                 <Image
                   src="/logo.png"
                   alt="惟实新聚 Logo"
                   width={72}
                   height={72}
-                  className="object-contain relative z-10"
+                  className="object-contain relative z-10 p-3"
                 />
               </div>
             </div>
