@@ -18,10 +18,6 @@ export default function Footer() {
                   className="object-contain"
                 />
               </div>
-              <div>
-                <h3 className="text-lg font-bold text-white">惟实新聚</h3>
-                <p className="text-sm text-gray-400">Wish Synergy</p>
-              </div>
             </div>
             <p className="text-sm leading-relaxed mb-4 max-w-md">
               惟实新聚（上海）高科技有限公司专注于仪表类产品的研发、生产与销售，

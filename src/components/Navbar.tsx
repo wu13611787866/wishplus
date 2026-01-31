@@ -38,7 +38,7 @@ export default function Navbar() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
+          <Link href="/" className="flex items-center group">
             <div className="relative w-16 h-16 flex items-center justify-center group-hover:scale-105 transition-transform">
               <Image
                 src="/logo.png"
@@ -48,14 +48,6 @@ export default function Navbar() {
                 className="object-contain"
                 priority
               />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-lg font-bold leading-tight" style={{ color: isScrolled ? '#111827' : '#ffffff' }}>
-                惟实新聚
-              </span>
-              <span className="text-xs" style={{ color: isScrolled ? '#6b7280' : '#e5e7eb' }}>
-                Wish Synergy
-              </span>
             </div>
           </Link>
 

@@ -76,19 +76,6 @@ export default function Home() {
                 <p className="text-lg md:text-xl mb-8 opacity-0 animate-fadeInUp">
                   {slide.description}
                 </p>
-                <div className="flex gap-4 justify-center opacity-0 animate-fadeInUp">
-                  <Button asChild size="lg" className="bg-white text-blue-900 hover:bg-blue-50">
-                    <Link href="/products">了解更多</Link>
-                  </Button>
-                  <Button
-                    asChild
-                    size="lg"
-                    variant="outline"
-                    className="border-white text-white hover:bg-white/10"
-                  >
-                    <Link href="/contact">联系我们</Link>
-                  </Button>
-                </div>
               </div>
             </div>
           </div>
