@@ -130,92 +130,52 @@ export default function NewsPage() {
               </div>
             )}
 
-            {/* News Grid */}
+            {/* News List - Parallel Banners */}
             {!loading && !error && news.length > 0 && (
-              <>
-                {/* Featured News */}
-                {news[0] && (
-                  <div className="mb-8">
-                    <Link
-                      href={news[0].url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow"
-                    >
-                      <div className="md:flex">
-                        <div
-                          className="md:w-1/2 h-64 md:h-auto relative"
-                          style={{ background: getCategoryGradient(news[0].category) }}
-                        >
-                          <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors"></div>
-                          <span className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium text-gray-900">
-                            {news[0].category}
-                          </span>
-                        </div>
-                        <div className="p-8 md:w-1/2 flex flex-col justify-center">
-                          <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
-                            <div className="flex items-center gap-1">
-                              <Calendar className="w-4 h-4" />
-                              <time>{formatDate(news[0].publish_time)}</time>
-                            </div>
-                            {news[0].site_name && (
-                              <span className="text-blue-600">{news[0].site_name}</span>
-                            )}
-                          </div>
-                          <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors line-clamp-2">
-                            {news[0].title}
-                          </h3>
-                          <p className="text-gray-600 leading-relaxed mb-4 line-clamp-3">
-                            {news[0].summary || news[0].snippet}
-                          </p>
-                          <div className="flex items-center text-blue-600 font-medium group-hover:translate-x-2 transition-transform">
-                            <span>阅读全文</span>
-                            <ArrowRight className="w-4 h-4 ml-2" />
-                          </div>
-                        </div>
-                      </div>
-                    </Link>
-                  </div>
-                )}
-
-                {/* News Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {news.slice(1).map((item) => (
-                    <Link
-                      key={item.id}
-                      href={item.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all hover:-translate-y-1"
-                    >
+              <div className="space-y-6">
+                {news.map((item) => (
+                  <Link
+                    key={item.id}
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow"
+                  >
+                    <div className="md:flex">
                       <div
-                        className="h-48 relative"
+                        className="md:w-1/2 h-64 md:h-auto relative"
                         style={{ background: getCategoryGradient(item.category) }}
                       >
                         <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors"></div>
-                        <span className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-gray-900">
+                        <span className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium text-gray-900">
                           {item.category}
                         </span>
                       </div>
-                      <div className="p-6">
-                        <div className="flex items-center gap-2 text-sm text-gray-500 mb-3">
-                          <Calendar className="w-4 h-4" />
-                          <time>{formatDate(item.publish_time)}</time>
+                      <div className="p-8 md:w-1/2 flex flex-col justify-center">
+                        <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
+                          <div className="flex items-center gap-1">
+                            <Calendar className="w-4 h-4" />
+                            <time>{formatDate(item.publish_time)}</time>
+                          </div>
+                          {item.site_name && (
+                            <span className="text-blue-600">{item.site_name}</span>
+                          )}
                         </div>
-                        <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                        <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors line-clamp-2">
                           {item.title}
                         </h3>
-                        <p className="text-sm text-gray-600 line-clamp-2">
+                        <p className="text-gray-600 leading-relaxed mb-4 line-clamp-3">
                           {item.summary || item.snippet}
                         </p>
-                        {item.site_name && (
-                          <p className="text-xs text-blue-600 mt-2">{item.site_name}</p>
-                        )}
+                        <div className="flex items-center text-blue-600 font-medium group-hover:translate-x-2 transition-transform">
+                          <span>阅读全文</span>
+                          <ArrowRight className="w-4 h-4 ml-2" />
+                        </div>
                       </div>
-                    </Link>
-                  ))}
-                </div>
-              </>
+                    </div>
+                  </Link>
+                ))}
+              </div>
             )}
 
             {/* Empty state */}
