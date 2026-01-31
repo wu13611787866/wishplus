@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Calendar, ArrowRight, RefreshCw } from 'lucide-react';
+import { Calendar, ArrowRight, RefreshCw, AlertCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 interface NewsItem {
