@@ -39,12 +39,12 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-12 h-12 flex items-center justify-center group-hover:scale-105 transition-transform">
+            <div className="relative w-16 h-16 flex items-center justify-center group-hover:scale-105 transition-transform">
               <Image
                 src="/logo.png"
                 alt="惟实新聚 Logo"
-                width={48}
-                height={48}
+                width={64}
+                height={64}
                 className="object-contain"
                 priority
               />
@@ -54,7 +54,7 @@ export default function Navbar() {
                 惟实新聚
               </span>
               <span className="text-xs" style={{ color: isScrolled ? '#6b7280' : '#e5e7eb' }}>
-                Weishi Xinju
+                Wish Synergy
               </span>
             </div>
           </Link>
