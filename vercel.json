@@ -3,5 +3,8 @@
   "outputDirectory": ".next",
   "devCommand": "pnpm dev",
   "installCommand": "pnpm install",
-  "framework": "nextjs"
+  "framework": "nextjs",
+  "engines": {
+    "node": "20.x"
+  }
 }
