@@ -9,13 +9,14 @@ export default function Footer() {
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <div className="relative w-16 h-16 flex items-center justify-center">
+              <div className="relative flex items-center justify-center" style={{ width: '72px', height: '72px' }}>
+                <div className="absolute inset-0 bg-white rounded-full shadow-lg"></div>
                 <Image
                   src="/logo.png"
                   alt="惟实新聚 Logo"
-                  width={64}
-                  height={64}
-                  className="object-contain"
+                  width={72}
+                  height={72}
+                  className="object-contain relative z-10"
                 />
               </div>
             </div>
