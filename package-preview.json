@@ -1,0 +1,11 @@
+{
+  "name": "wishplus-preview",
+  "version": "1.0.0",
+  "description": "惟实新聚官网 - 本地预览工具",
+  "scripts": {
+    "install": "echo '请使用 pnpm install 安装依赖'",
+    "start": "node preview-server.js",
+    "dev": "pnpm dev",
+    "build": "pnpm build"
+  }
+}
