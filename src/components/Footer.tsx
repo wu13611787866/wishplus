@@ -10,15 +10,12 @@ export default function Footer() {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center gap-4 mb-4">
               <div className="relative flex items-center justify-center" style={{ width: '80px', height: '80px' }}>
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-600 to-blue-400 shadow-2xl overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
-                </div>
                 <Image
                   src="/logo.png"
                   alt="惟实新聚 Logo"
                   width={80}
                   height={80}
-                  className="object-contain relative z-10 p-4 brightness-0 invert"
+                  className="object-contain brightness-0 invert drop-shadow-lg"
                 />
               </div>
             </div>
