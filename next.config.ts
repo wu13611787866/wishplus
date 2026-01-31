@@ -13,8 +13,6 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
     ],
-    // 允许加载本地图片
-    unoptimized: false,
   },
 };
 

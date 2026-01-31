@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
-import Image from 'next/image';
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -12,13 +11,22 @@ export default function Home() {
 
   const slides = [
     {
-      bgImage: '/assets/首页轮播图1.png',
+      title: '专业仪表解决方案',
+      subtitle: 'Precision Instruments',
+      description: '为您提供高品质、高精度的测量仪表产品',
+      bgImage: 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)',
     },
     {
-      bgImage: '/assets/首页轮播图2.png',
+      title: '创新科技 驱动未来',
+      subtitle: 'Innovation Drives Future',
+      description: '专注仪表研发，引领行业技术发展',
+      bgImage: 'linear-gradient(135deg, #0f172a 0%, #334155 100%)',
     },
     {
-      bgImage: '/assets/首页轮播图3.png',
+      title: '品质承诺 服务至上',
+      subtitle: 'Quality Commitment',
+      description: '以客户需求为导向，提供全方位解决方案',
+      bgImage: 'linear-gradient(135deg, #1e40af 0%, #60a5fa 100%)',
     },
   ];
 
@@ -54,21 +62,35 @@ export default function Home() {
             className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
               index === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
             }`}
+            style={{ background: slide.bgImage }}
           >
-            {/* Background Image */}
-            <div className="absolute inset-0">
-              <Image
-                src={slide.bgImage}
-                alt={`Slide ${index + 1}`}
-                fill
-                priority={index === 0}
-                className="object-cover"
-                sizes="100vw"
-              />
+            <div className="absolute inset-0 bg-black/40"></div>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="text-center text-white px-4 max-w-5xl">
+                <h2 className="text-sm md:text-base tracking-[0.3em] mb-4 opacity-0 animate-fadeIn">
+                  {slide.subtitle}
+                </h2>
+                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 opacity-0 animate-fadeInUp">
+                  {slide.title}
+                </h1>
+                <p className="text-lg md:text-xl mb-8 opacity-0 animate-fadeInUp">
+                  {slide.description}
+                </p>
+                <div className="flex gap-4 justify-center opacity-0 animate-fadeInUp">
+                  <Button asChild size="lg" className="bg-white text-blue-900 hover:bg-blue-50">
+                    <Link href="/products">了解更多</Link>
+                  </Button>
+                  <Button
+                    asChild
+                    size="lg"
+                    variant="outline"
+                    className="border-white text-white hover:bg-white/10"
+                  >
+                    <Link href="/contact">联系我们</Link>
+                  </Button>
+                </div>
+              </div>
             </div>
-
-            {/* Dark Overlay */}
-            <div className="absolute inset-0 bg-black/30"></div>
           </div>
         ))}
 
@@ -177,27 +199,34 @@ export default function Home() {
         </div>
       </div>
 
-      {/* CTA Section */}
-      <div className="py-16 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              专业仪表解决方案
-            </h2>
-            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-              为您提供高品质、高精度的测量仪表产品，专注仪表研发，引领行业技术发展
-            </p>
-            <div className="flex gap-4 justify-center">
-              <Button asChild size="lg">
-                <Link href="/products">了解更多</Link>
-              </Button>
-              <Button asChild size="lg" variant="outline">
-                <Link href="/contact">联系我们</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <style jsx>{`
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fadeIn {
+          animation: fadeIn 1s ease-out forwards;
+          animation-delay: 0.5s;
+        }
+        .animate-fadeInUp {
+          animation: fadeInUp 1s ease-out forwards;
+          animation-delay: 0.5s;
+        }
+      `}</style>
     </div>
   );
 }
